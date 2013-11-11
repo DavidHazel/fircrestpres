@@ -206,6 +206,18 @@ body h1.title, body #site-name, body h2.block-title, body h2.pane-title {
   white-space: nowrap;
 }
 
+
+#main-menu-wrapper {
+  clear: none;
+}
+
+/**
+ * Mobile menu block
+ */
+#header-group-inner .block-menu-block {
+  display: none;
+}
+
 /* Footer - Search
 -------------------------------------------------------------- */
 
@@ -243,6 +255,11 @@ body h1.title, body #site-name, body h2.block-title, body h2.pane-title {
 -------------------------------------------------------------- */
 .main {
   clear: both;/* opera fix*/
+}
+
+#block-system-main .gutter {
+  margin-left: 1px;
+  margin-right: 19px;
 }
 
 #content-group-inner { margin-left: 10px; margin-right: 10px; }
@@ -332,7 +349,7 @@ div.node .more-link a {
 ul.tabs {
   margin-left: 0;
   position: relative;
-  z-index: 500;
+  z-index: 495;
 }
 
 /* Drupal Messages
@@ -786,3 +803,66 @@ div.panels-ipe-display-container .block-title-lt-green h2.pane-title {
 
 /* Admin Toolbar http://drupal/project/toolbar z-index fix */
 div#toolbar-toolbar {  z-index: 1000; }
+
+
+/*************************************
+  OpenChurch Header Styles
+*************************************/
+
+body.oc-header-gray-bar #header-site-info { margin-top: 0; padding-top: 15px; }
+
+body.oc-header-gray-bar .header-group { height: 83px; margin-bottom: 10px; }
+
+body.oc-header-gray-bar #site-name {
+  font-size: 2.2em;
+  margin-top: 9px;
+  margin-bottom: 7px;
+  max-width: 260px; /* For long titles */
+}
+
+body.oc-header-gray-bar #site-name a:link, body.oc-header-gray-bar #site-name a:visited,
+body.oc-header-gray-bar #site-name a:hover, body.oc-header-gray-bar #site-name a:active {
+  color: #fff;
+}
+body.oc-header-gray-bar #page {
+  /* background: url(../images/oc-gray-header-bg.png) top left repeat-x;
+  */
+width: 100%;
+}
+
+body.oc-header-gray-bar #logo {
+  margin-right: 7px;
+}
+
+body.oc-header-gray-bar #logo img { height: 40px; }
+
+body.oc-header-gray-bar #block-superfish-1 { margin-top: 5px; }
+
+body.oc-header-gray-bar #block-superfish-1 ul.sf-menu a,
+body.oc-header-gray-bar #block-superfish-1 ul.sf-menu a:visited {
+color:black; 
+border-top: 7px solid transparent;
+}
+
+body.oc-header-gray-bar #block-superfish-1 ul.sf-menu a.active,
+body.oc-header-gray-bar #block-superfish-1 ul.sf-menu a.active:visited {
+  font-weight: bold; border-top-color: #D6E6C2;
+}
+
+body.oc-header-gray-bar #block-superfish-1 ul.sf-menu a:hover {
+  border-top: 7px solid #d6edf5;
+}
+
+
+/* Style for individual dropdown menu items, add border-bottom for separators */
+body.oc-header-gray-bar #block-superfish-1 ul.sf-menu li li {
+}
+  body.oc-header-gray-bar #block-superfish-1 ul.sf-menu li li a,
+  body.oc-header-gray-bar #block-superfish-1 ul.sf-menu li li a.active,
+  body.oc-header-gray-bar #block-superfish-1 ul.sf-menu li li a:visited {
+    border-top: 5px solid #fff; color: #000;
+  }
+  body.oc-header-gray-bar #block-superfish-1 ul.sf-menu li li a:hover {
+    border-top: 5px solid #ccc;
+    background: #d6edf5;
+  }

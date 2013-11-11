@@ -172,6 +172,7 @@ body .block.view-map-directions .inner {
     }
       .openchurch-galleries-list .views-field-nid a {
         padding: .2em .4em; background: #efefef;
+        display: block;
       }
 
 /*************************************
@@ -288,6 +289,10 @@ body .block.view-map-directions .inner {
     border-bottom: 1px solid #333; padding-bottom: .2em;
     font-style: italic; font-size: 1.5em; margin-bottom: .5em;
   }
+  
+  #openchurch-event-detail .field-type-addressfield .field-label {
+    clear: left;
+  }
 
   #openchurch-event-detail .register-online {
     position: inherit;
@@ -335,7 +340,7 @@ body .block.view-map-directions .inner {
       border: 2px solid #ccc;
     }
   .openchurch-ministries-list .views-field-nid a {
-    position: absolute; top: 0; right: 0; background: #ccc; color: #fff;
+    position: absolute; top: 0; right: 0; background: #efefef;
     padding: .2em .4em;
   }
 
@@ -477,4 +482,34 @@ body .block.view-map-directions .inner {
   
   body.node-type-openchurch-video .node-openchurch-video .field-name-body { 
     margin-top: 1em; 
+  }
+  
+/*************************************
+  Simplenews Block
+*************************************/
+.block-simplenews {
+  position: relative;
+}
+  .block-simplenews input.form-text {
+    border: 1px solid #7e8689;
+    color: #5d6265;
+    text-indent: .3em;
+    width: 18em;
+    height: 20px;
+    line-height: 18px;
+    text-indent: .3em;
+    font-size: 1em;
+  }
+  .block-simplenews input.form-submit {
+    border: 1px solid #7e8689;
+    background: #b4c3c8;
+    color: #5d6265;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    height: 25px;
+    width: 7.5em;
+  }
+  .block-simplenews .feed-icon {
+    position: absolute; right: 1.2em; bottom: .5em;
   }
