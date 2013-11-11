@@ -9,7 +9,8 @@ dependencies[] = block
 dependencies[] = color
 dependencies[] = comment
 dependencies[] = contextual
-dependencies[] = dashboard
+;dependencies[] = dashboard
+dependencies[] = dblog
 dependencies[] = field
 dependencies[] = field_ui
 dependencies[] = file
@@ -28,13 +29,14 @@ dependencies[] = shortcut
 dependencies[] = statistics
 dependencies[] = syslog
 dependencies[] = taxonomy
-dependencies[] = toolbar
+;dependencies[] = toolbar
 
 
 ; Contrib
 
 dependencies[] = addressfield
 ;dependencies[] = admin
+dependencies[] = admin_menu_toolbar
 dependencies[] = apps
 dependencies[] = backup_migrate
 dependencies[] = bulk_export
@@ -71,6 +73,7 @@ dependencies[] = link
 dependencies[] = media
 dependencies[] = media_vimeo
 dependencies[] = media_youtube
+dependencies[] = menu_block
 dependencies[] = menu_breadcrumb
 dependencies[] = metatag
 dependencies[] = nodequeue
@@ -80,6 +83,7 @@ dependencies[] = page_title
 dependencies[] = panels
 dependencies[] = panels_ipe
 dependencies[] = pathauto
+dependencies[] = pathologic
 dependencies[] = plup
 dependencies[] = plupload
 dependencies[] = references
@@ -95,6 +99,7 @@ dependencies[] = rules_admin
 dependencies[] = strongarm
 dependencies[] = styles
 dependencies[] = styles_ui
+dependencies[] = tinynav
 dependencies[] = token
 dependencies[] = user_reference
 dependencies[] = views
@@ -139,9 +144,10 @@ dependencies[] = wysiwyg_iframe
 
 files[] = openchurch.profile
 files[] = openchurch.install
-; Information added by drupal.org packaging script on 2012-04-26
-version = "7.x-1.10-alpha1"
+
+; Information added by drupal.org packaging script on 2013-10-28
+version = "7.x-1.11-beta14"
 core = "7.x"
 project = "openchurch"
-datestamp = "1335403291"
+datestamp = "1383002127"
 

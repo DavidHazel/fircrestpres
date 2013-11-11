@@ -82,14 +82,16 @@ function user_permission_features_export_render($module, $data) {
     if (isset($permissions[$perm_name])) {
       sort($permissions[$perm_name]);
       $permission['roles'] = $permissions[$perm_name];
-      $permission['module'] = $perm_modules[$perm_name];
     }
     else {
       $permission['roles'] = array();
     }
+    if (isset($perm_modules[$perm_name])) {
+      $permission['module'] = $perm_modules[$perm_name];
+    }
     $perm_identifier = features_var_export($perm_name);
     $perm_export = features_var_export($permission, '  ');
-    $code[] = "  // Exported permission: {$perm_name}";
+    $code[] = "  // Exported permission: {$perm_name}.";
     $code[] = "  \$permissions[{$perm_identifier}] = {$perm_export};";
     $code[] = "";
   }
@@ -121,6 +123,7 @@ function user_permission_features_rebuild($module) {
     node_types_rebuild();
 
     $roles = _user_features_get_roles();
+    drupal_static_reset();
     $permissions_by_role = _user_features_get_permissions(FALSE);
     foreach ($defaults as $permission) {
       $perm = $permission['name'];
@@ -181,7 +184,7 @@ function user_role_features_export_render($module, $data) {
       unset($role->rid);
       $role_identifier = features_var_export($name);
       $role_export = features_var_export($role , '  ');
-      $code[] = "  // Exported role: {$name}";
+      $code[] = "  // Exported role: {$name}.";
       $code[] = "  \$roles[{$role_identifier}] = {$role_export};";
       $code[] = "";
     }

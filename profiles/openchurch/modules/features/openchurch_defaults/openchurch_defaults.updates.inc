@@ -154,3 +154,113 @@ function openchurch_defaults_update_7003(&$sandbox){
   
   return t('Updated mix and match settings, openchurch starter theme settings.');
 }
+
+/**
+ * Adding pathologic filter
+ */
+function openchurch_defaults_update_7004(&$sandbox){
+  
+  //Make sure we enable pathologic
+  if (!module_exists('pathologic'))
+    module_enable(array('pathologic'));
+
+  //Update full html filter
+  $full_html_format = array(
+    'format' => 'full_html',
+    'name' => 'Full HTML',
+    'weight' => 0,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+      'media_filter' => array(
+        'weight' => 11,
+        'status' => 1,
+      ),
+      'pathologic' => array(
+        'weight' => 99,
+        'status' => 1,
+      ),
+    ),
+  );
+  $full_html_format = (object) $full_html_format;
+  filter_format_save($full_html_format);
+  
+  //Update full html filter
+  $filtered_html_format = array(
+    'format' => 'filtered_html',
+    'name' => 'Filtered HTML',
+    'weight' => 1,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // HTML filter.
+      'filter_html' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 2,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+      'pathologic' => array(
+        'weight' => 99,
+        'status' => 1,
+      ),
+    ),
+  );
+  $filtered_html_format = (object) $filtered_html_format;
+  filter_format_save($filtered_html_format);
+  
+  $sandbox['#finished'] = 1;
+  
+  return t('Pathologic filter has been enabled for full html & filtered text format.');
+}
+
+/**
+ * Enabled Menu Block & Tiny Nav for mobile menu
+ */
+function openchurch_defaults_update_7005(&$sandbox){
+ 
+  //Enable TinyNAv & Menu Block
+  module_enable(array('menu_block', 'tinynav'));
+  
+  $delta = 1 + (integer)db_query('SELECT delta FROM {block} WHERE module = :module AND theme = :theme ORDER BY delta DESC LIMIT 1', 
+    array(':module' => 'menu_block', ':theme' => 'openchurch_theme'))->fetchColumn();
+  
+  //Add mobile menu
+  _openchurch_defaults_add_block_title($delta, '', 'menu_block');
+
+  variable_set('openchurch_menu_block_delta', $delta);
+  
+  //Update Tiny Nav settings
+  variable_set('tinynav_active_class', 'active');
+  variable_set('tinynav_css_selector', '#block-menu_block-'.$delta.' ul.menu');
+  variable_set('tinynav_header', '1');
+  variable_set('tinynav_media_query', 'only screen and (max-width:460px)');
+  
+  //Update Mobile Menu
+  variable_set('menu_block_'.$delta.'_admin_title', 'Mobile Menu');
+  variable_set('menu_block_'.$delta.'_expanded', '1');
+}

@@ -45,13 +45,9 @@
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
-  
-  <!--[if lte IE 7]> 
-  <link type="text/css" rel="stylesheet" media="all" href="<?php print base_path() . path_to_theme(); ?>/css/openchurch-ie7.css" />
-  <![endif]-->
-  
+
   <?php if ($mobile_friendly): ?>    
-  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="MobileOptimized" content="width" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <?php endif; ?>

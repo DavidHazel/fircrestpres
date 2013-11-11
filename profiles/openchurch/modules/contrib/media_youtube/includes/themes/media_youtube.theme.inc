@@ -13,7 +13,12 @@ function media_youtube_preprocess_media_youtube_video(&$variables) {
   // Build the URL for display.
   $uri = $variables['uri'];
   $wrapper = file_stream_wrapper_get_instance_by_uri($uri);
-  $parts = $wrapper->get_parameters();
+
+  $parts = null;
+  
+  if (is_object($wrapper))
+    $parts = $wrapper->get_parameters();
+  
   $variables['video_id'] = check_plain($parts['v']);
   $variables['query'] = array();
 

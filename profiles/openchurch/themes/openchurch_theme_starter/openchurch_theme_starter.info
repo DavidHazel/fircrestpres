@@ -67,10 +67,10 @@ settings[grid_mask] = 1
 ; --------------------------------------------------------------------------------
 
 ; Set to 0 to remove support for responsive themes.
-settings[responsive_enabled] = 0
+settings[responsive_enabled] = 1
 
 ; Load JavaScript library to support media queries for older versions of IE.  Recommended.
-settings[responsive_ie_shim] = 1
+settings[responsive_ie_shim] = 0
 
 ; Default grid parameters for responsive.
 settings[responsive_columns] = 12
@@ -177,9 +177,9 @@ settings[grid_adjusted_regions_fluid][content][] = sidebar_second
 settings[grid_adjusted_groups_fluid][content_group][] = sidebar_second
 
 fonts[google_fonts_api][] = "Neuton&subset=latin#regular"
-; Information added by drupal.org packaging script on 2012-04-26
-version = "7.x-1.10-alpha1"
+; Information added by drupal.org packaging script on 2013-10-28
+version = "7.x-1.11-beta14"
 core = "7.x"
 project = "openchurch"
-datestamp = "1335403291"
+datestamp = "1383002127"
 
